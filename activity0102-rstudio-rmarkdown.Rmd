@@ -59,14 +59,22 @@ star_data %>%
 
 ### Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
+Filter out any data not part of the "circle" set and place that data in circle_data. Then we will tell 
+R how to display the data.
 
-```{r}
+```{r plot-circle, fig.height=3, fig.width=6}
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
 
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
 
-```{r}
+Calculate the r between x and y from the circle_data.
 
+```{r cor-circle}
+circle_data %>%
+  summarize(r = cor(x, y))
 ```
 
 ### Exercise 5
