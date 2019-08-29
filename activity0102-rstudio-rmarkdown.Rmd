@@ -2,7 +2,10 @@
 title: "Activity 1.2 - RStudio and R Markdown"
 author: "Philip Picard"
 date: "8/29/2019"
-output: html_document
+output: 
+  html_document: 
+    fig_height: 8
+    fig_width: 10
 ---
 
 ### Load packages
@@ -79,4 +82,20 @@ circle_data %>%
 
 ### Exercise 5
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, green C+.)
+Plot all the datasets instead of just one.
+
+```{r plot-all}
+ggplot(data = datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
+  geom_point() +
+  facet_wrap(~ dataset, ncol = 3) +
+  theme(legend.position = "none")
+```
+
+Group all the datasets and then get the r between x and y for each dataset.
+
+```{r group-all}
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y)) %>%
+  print(13)
+```
