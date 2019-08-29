@@ -15,13 +15,12 @@ library(datasauRus)
 
 ### Exercise 1
 
-(Type your answer to Exercise 1 here. This exercise does not require any R code.)
+1846 rows and 3 columns. The variables are: dataset, x, and y.
 
 ### Exercise 2
 
-(The answers for this Exercise are given for you below. But you should clean up some of the narrative so that it only includes what you want to turn in.)
-
-First let's plot the data in the dino dataset:
+Get the data we need and filter out anything that is not part of the "dino" dataset. We will then
+tell R how to display it (with a plot).
 
 ```{r plot-dino, fig.height=3, fig.width=6}
 dino_data <- datasaurus_dozen %>%
@@ -31,7 +30,7 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
-And next calculate the correlation between `x` and `y` in this dataset:
+Finally calculate the the relation between x and y.
 
 ```{r cor-dino}
 dino_data %>%
